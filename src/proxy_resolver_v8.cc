@@ -180,7 +180,7 @@ v8::Local<v8::String> ASCIIStringToV8String(v8::Isolate* isolate, const std::str
 }
 
 v8::Local<v8::String> UTF16StringToV8String(v8::Isolate* isolate, const android::String16& s) {
-  return v8::String::NewFromTwoByte(isolate, s.string(), v8::String::kNormalString, s.size());
+  return v8::String::NewFromTwoByte(isolate, (const uint16_t*)s.string(), v8::String::kNormalString, s.size());
 }
 
 // Converts an ASCII string literal to a V8 string.
